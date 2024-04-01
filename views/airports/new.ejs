@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<h1>add airports</h1>
+
+<% airport.forEach(name => { %>
+ <%= name.airport %>
+<% }) %>
+<form action="/airports/new" method="post">
+    <label for="airport">Airport Code</label>
+    <select name="airport" id="">
+        <option value="aus">aus</option>
+        <option value="den">den</option>
+        <option value="dfw">dfw</option>
+        <option value="lax">lax</option>
+        <option value="san">san</option>
+    </select>
+    <button type="submit">add airport</button>
+</form>
+<%- include('../partials/footer') %>

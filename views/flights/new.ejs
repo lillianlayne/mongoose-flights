@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+<div class="flx-row">
+  <header>
+    <h1 class="title">Create <br />New Flight</h1>
+  </header>
+
+  <form class="add-flight-form" action="/flights" method="post">
+    
+      <div class="form-label">Flight Number</div>
+      <input type="number" name="flightNo" id="flight-number" />
+    
+    
+      <div class="form-label">Airline</div>
+      <select name="airline" id="">
+        <option value="Southwest">southwest</option>
+        <option value="American">american</option>
+        <option value="United">united</option>
+      </select>
+    
+    
+      <div class="form-label">Departure Airport</div>
+      <select name="airport" id="selection">
+        <option value="aus">aus</option>
+        <option value="den">den</option>
+        <option value="dfw">dfw</option>
+        <option value="lax">lax</option>
+        <option value="san">san</option>
+      </select>
+    
+    
+      <div class="form-label">Date</div>
+      <input
+        type="datetime-local"
+        id="date"
+        name="departs"
+        value="<%= departDefault %>"
+      />
+    
+    <br>
+    <button type="submit">create flight</button>
+  </form>
+</div>
+<%- include('../partials/footer') %>

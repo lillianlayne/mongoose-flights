@@ -1,0 +1,386 @@
+:root {
+  --p100: #475f1d;
+  --p200: #698337;
+  --p300: #889672;
+  --p400: #c9daa6;
+  --s100: #575b15;
+  --s200: #7d9b25;
+  --s300: #99cb32;
+  --s400: #acd556;
+  --t100: #b9271d;
+  --t200: #eb4336;
+  --t300: #fc7368;
+  --t400: #ff8e85;
+  --txt-100: #fcfcfc;
+  --bg: #161813;
+  --accent: #252722;
+  --txt-200: #d1c9c9;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  color: var(--txt-100);
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 34px;
+  background: var(--bg);
+  color: var(--txt-100);
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  align-items: center;
+  border-bottom: 1px solid var(--txt-100);
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+p {
+  margin-top: 24px;
+  font-weight: 200;
+}
+
+.table-container {
+  max-height: 566px;
+  overflow: scroll;
+  width: 90vw;
+  align-items: end;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 85vh;
+}
+
+table {
+  border-spacing: 0 6px;
+  padding: 10px 10px 10px 10px;
+  align-items: end;
+  width: 100%;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+td,
+th {
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  height: 10px;
+  font-size: 10px;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: var(--txt-200);
+  letter-spacing: 0.12em;
+}
+
+td {
+  height: 50px;
+}
+
+td:nth-child(1) {
+  border-radius: 6px 0px 0px 6px;
+  padding: 16px;
+}
+
+td:nth-child(8) {
+  border-radius: 0px 6px 6px 0px;
+}
+
+header > .title {
+  font-size: 60px;
+  font-weight: 100;
+}
+
+.copy > .title {
+  font-size: 60px;
+  font-weight: 100;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header > a {
+  padding: 16px 40px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--p300);
+  height: fit-content;
+  border: 1px solid var(--p300);
+}
+
+header > a:hover {
+  color: var(--bg);
+  background: var(--p300);
+}
+
+td > a {
+  color: var(--p300);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  border-bottom: 1px solid var(--p300);
+}
+
+tr:not(:first-child) {
+  background: var(--accent);
+}
+.airport-code {
+  width: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--p300);
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.flx-row {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  justify-content: space-around;
+  margin-top: 12%;
+}
+
+.flex-row > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.flx-row > header {
+  width: 30%;
+}
+
+.form-label {
+  width: 100%;
+  color: var(--txt-200);
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  margin: 20px 0px 6px 0px;
+}
+
+.add-flight-form {
+  width: 50%;
+}
+
+.add-flight-form > input,
+select {
+  width: 100%;
+  height: 40px;
+  background: var(--accent);
+  color: var(--txt-100);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  padding: 0px 8px;
+}
+
+.add-flight-form > button {
+  padding: 26px 36px;
+  background: var(--p300);
+  color: var(--bg);
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 45px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+}
+
+input[type="number"]:focus {
+  border: 1px solid var(--p300);
+}
+
+h1 {
+  font-weight: 100;
+}
+
+.show {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+}
+
+.bubble-airline {
+  background: var(--p300);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  color: var(--bg);
+}
+
+.airport-individual-container {
+  display: flex;
+  gap: 26px;
+  border-radius: 8px;
+}
+
+.flight-left,
+.flight-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.flight-left {
+  text-align: left;
+  font-size: 12px;
+}
+
+.flight-right {
+  font-size: 14px;
+  text-align: right;
+}
+
+.accent-color {
+  color: var(--accent);
+}
+
+.secondary-color {
+  color: var(--txt-200);
+  font-weight: 200;
+}
+
+.bubble-right {
+  color: var(--bg) !important;
+  background-color: var(--p300) !important;
+  font-weight: 500;
+}
+
+.bubble {
+  background: var(--bg);
+  color: var(--p300);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  width: fit-content;
+  padding: 4px 6px;
+  border-radius: 50px;
+}
+
+.arrival {
+  border: 1px solid var(--p300);
+  padding: 20px;
+}
+
+.departs {
+  background: var(--p300);
+  color: var(--bg);
+  padding: 20px;
+}
+
+.show-flight {
+  display: flex;
+  gap: 8px;
+}
+
+.last {
+  border-radius: 0px 8px 8px 0px;
+}
+
+.ticket-table {
+  width: 60%;
+  height: fit-content;
+}
+.ticket-container {
+  display: flex;
+  width: 90vw;
+  justify-content: space-between;
+}
+
+.tickets {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.small {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.arrival-inputs {
+  display: flex;
+  gap: 8px;
+  height: fit-content !important;
+}
+
+.arrival-inputs > select {
+  width: 120px;
+}
+
+.arrival-inputs > input {
+  width: 100%;
+  height: 40px;
+  background: var(--accent);
+  color: var(--txt-100);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  padding: 0px 8px;
+}
+
+.small > button {
+  padding: 4px;
+}
+
+.arrival-btn {
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--p300);
+  font-size: 12px;
+  font-weight: 200;
+  text-transform: uppercase;
+}

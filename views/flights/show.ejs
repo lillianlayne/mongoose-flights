@@ -1,0 +1,94 @@
+<%- include('../partials/header') %> <% const departTime = flight.departs %>
+<div class="show">
+  <div class="title">
+    <h1>Flight Details for flight: <%= flight.flightNo %></h1>
+  </div>
+  <div class="bubble-airline"><%= flight.airline %></div>
+</div>
+<!-- show flight departure info -->
+<div class="show-flight">
+  <div class="airport-individual-container departs">
+    <div class="flight-left">
+      <div class="bubble">DEPARTS</div>
+      <h2><strong><%= flight.airport %></strong></h2>
+      <p><%= getAirport(flight.airport) %></p>
+    </div>
+
+    <div class="flight-right">
+      <div class="date"><%= getDate(flight.departs) %></div>
+      <div class="time"><%= getTime(flight.departs) %></div>
+    </div>
+  </div>
+
+  <!-- show arrival desitination if there is one set, if not show the form -->
+  <div class="airport-individual-container arrival">
+    <% if (flight.destination.length) { %> <% flight.destination.forEach(dest =>
+    {%>
+    <div class="flight-left">
+      <div class="bubble bubble-right">DESTINATION</div>
+      <h2><strong><%= dest.airport %></strong></h2>
+      <p><%= getAirport(dest.airport) %></p>
+      <div class="flight-right"></div>
+    </div>
+    <div class="flight-right">
+      <div class="date secondary-color"><%= getDate(dest.arrival) %></div>
+      <div class="time secondary-color"><%= getTime(dest.arrival) %></div>
+    </div>
+    <% }) %> <% } else { %>
+    <form
+      class="add-flight-form small"
+      action="/flights/<%= flight._id %>/destination"
+      method="post"
+    >
+      <div class="form-label">add destination</div>
+      <div class="arrival-inputs">
+        <select name="destinationId" id="">
+          <%- destination.map(port => `
+          <option value="${port._id}">${port.airport}</option>
+          ` ).join('') %>
+        </select>
+        <br />
+        <input type="datetime" name="arrival" value="<%= departTime %>" />
+        <button class="arrival-btn" type="submit">add destination</button>
+      </div>
+    </form>
+    <% } %>
+  </div>
+</div>
+
+<div class="ticket-container">
+  <!-- show tickets-->
+  <table class="ticket-table">
+    <tr>
+      <th>Seat No.</th>
+      <th>Price</th>
+    </tr>
+
+    <% if (flight.tickets.length) { %> <% flight.tickets.forEach(ticket => { %>
+    <tr>
+      <td><%= ticket.seat %></td>
+      <td class="last"><%= ticket.price %></td>
+    </tr>
+    <% }) %> <% } else { %>
+    <td>add tickets below</td>
+    <td class="last"></td>
+    <% } %>
+  </table>
+
+  <div class="tickets">
+    <h2>add tickets</h2>
+    <form
+      class="add-flight-form"
+      action="/flights/<%= flight._id %>/tickets"
+      method="post"
+    >
+      <label for="seat">Seat:</label>
+      <input name="seat" patter="[A-F][1-9]\d?" />
+      <label for="price">Price:</label>
+      <input name="price" pattern="^[0-9]*$" min="0" />
+
+      <button type="submit">add ticket</button>
+    </form>
+  </div>
+</div>
+<%- include('../partials/footer') %>

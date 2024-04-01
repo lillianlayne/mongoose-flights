@@ -1,0 +1,59 @@
+<%- include('../partials/header') %>
+<div class="container">
+
+  <header>
+    <div class="copy">
+      <div class="title">All Flights</div>
+      <p>To view and set destination information, <br>view flight details</p>
+    </div>
+    <a href="/flights/new" class="add-flight">add flight</a>
+  </header>
+  
+
+  <div class="table-container">
+    <table id="flight-table">
+      
+      <tr>
+        <th>Flight No.</th>
+        <th>Departure</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Takeoff</th>
+        <th>Landing</th>
+        <th>Airline</th>
+        <th></th>
+      </tr>
+      <% flights.forEach(flight => { %>
+        <tr>
+          <td><%= flight.flightNo %></td>
+          <td class="uppercase">
+            <div class="airport-code">
+              
+              <%= flight.airport %>
+            </div>
+          </td>
+          
+          <% if (flight.destination.length) { %> 
+            <%- flight.destination.map(dest => 
+        `<td class="uppercase"> <div class="airport-code">${dest.airport}</div></td>`
+        ).join('') %>
+    <% } else { %>
+      <td>TBD</td>
+      <% } %>
+      <td><%= getDate(flight.departs) %></td>
+      <td><%= getTime(flight.departs) %></td>
+      <% if (flight.destination.length) { %> 
+        <%- flight.destination.map(dest => 
+    `<td class="uppercase">${getTime(dest.arrival)}</td>`
+    ).join('') %>
+<% } else { %>
+  <td>--</td>
+  <% } %>
+      <td><%= flight.airline %></td>
+      <td><a href="/flights/<%= flight._id %>">flight details &gt;</a></td>
+    </tr>
+    <% }) %>
+  </table>
+</div>
+</div>
+<%- include('../partials/footer') %>
